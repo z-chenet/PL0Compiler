@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		26BA2C3F19E491CE005FEE7B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C3E19E491CE005FEE7B /* main.c */; };
 		26BA2C4119E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */; };
-		26BA2C4C19E491FD005FEE7B /* Parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C4719E491FD005FEE7B /* Parser.c */; };
-		26BA2C4D19E491FD005FEE7B /* pMachine.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C4919E491FD005FEE7B /* pMachine.c */; };
-		26BA2C4E19E491FD005FEE7B /* Scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C4A19E491FD005FEE7B /* Scanner.c */; };
+		26BA2C5419E49365005FEE7B /* Parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C4F19E49365005FEE7B /* Parser.c */; };
+		26BA2C5519E49365005FEE7B /* pMachine.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C5119E49365005FEE7B /* pMachine.c */; };
+		26BA2C5619E49365005FEE7B /* Scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C5219E49365005FEE7B /* Scanner.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,11 +31,11 @@
 		26BA2C3B19E491CE005FEE7B /* ZachAndJonahPL0Compiler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZachAndJonahPL0Compiler; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BA2C3E19E491CE005FEE7B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ZachAndJonahPL0Compiler.1; sourceTree = "<group>"; };
-		26BA2C4719E491FD005FEE7B /* Parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Parser.c; path = ../../../ZachAndJonahCodeGenerator/ZachAndJonahCodeGenerator/Parser.c; sourceTree = "<group>"; };
-		26BA2C4819E491FD005FEE7B /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parser.h; path = ../../../ZachAndJonahCodeGenerator/ZachAndJonahCodeGenerator/Parser.h; sourceTree = "<group>"; };
-		26BA2C4919E491FD005FEE7B /* pMachine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pMachine.c; path = ../../../ZachAndJonahCodeGenerator/ZachAndJonahCodeGenerator/pMachine.c; sourceTree = "<group>"; };
-		26BA2C4A19E491FD005FEE7B /* Scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Scanner.c; path = ../../../ZachAndJonahCodeGenerator/ZachAndJonahCodeGenerator/Scanner.c; sourceTree = "<group>"; };
-		26BA2C4B19E491FD005FEE7B /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Scanner.h; path = ../../../ZachAndJonahCodeGenerator/ZachAndJonahCodeGenerator/Scanner.h; sourceTree = "<group>"; };
+		26BA2C4F19E49365005FEE7B /* Parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Parser.c; sourceTree = "<group>"; };
+		26BA2C5019E49365005FEE7B /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		26BA2C5119E49365005FEE7B /* pMachine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pMachine.c; sourceTree = "<group>"; };
+		26BA2C5219E49365005FEE7B /* Scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Scanner.c; sourceTree = "<group>"; };
+		26BA2C5319E49365005FEE7B /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +68,11 @@
 		26BA2C3D19E491CE005FEE7B /* ZachAndJonahPL0Compiler */ = {
 			isa = PBXGroup;
 			children = (
-				26BA2C4719E491FD005FEE7B /* Parser.c */,
-				26BA2C4819E491FD005FEE7B /* Parser.h */,
-				26BA2C4919E491FD005FEE7B /* pMachine.c */,
-				26BA2C4A19E491FD005FEE7B /* Scanner.c */,
-				26BA2C4B19E491FD005FEE7B /* Scanner.h */,
+				26BA2C4F19E49365005FEE7B /* Parser.c */,
+				26BA2C5019E49365005FEE7B /* Parser.h */,
+				26BA2C5119E49365005FEE7B /* pMachine.c */,
+				26BA2C5219E49365005FEE7B /* Scanner.c */,
+				26BA2C5319E49365005FEE7B /* Scanner.h */,
 				26BA2C3E19E491CE005FEE7B /* main.c */,
 				26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */,
 			);
@@ -130,10 +130,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26BA2C4E19E491FD005FEE7B /* Scanner.c in Sources */,
-				26BA2C4C19E491FD005FEE7B /* Parser.c in Sources */,
+				26BA2C5619E49365005FEE7B /* Scanner.c in Sources */,
+				26BA2C5419E49365005FEE7B /* Parser.c in Sources */,
 				26BA2C3F19E491CE005FEE7B /* main.c in Sources */,
-				26BA2C4D19E491FD005FEE7B /* pMachine.c in Sources */,
+				26BA2C5519E49365005FEE7B /* pMachine.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
