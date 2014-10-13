@@ -1,9 +1,15 @@
-//
-//  Parser.c
-//  ZachAndJonahCodeGenerator
-//
-//  Created by Zachary Chenet on 10/7/14.
-//  Copyright (c) 2014 Zachary Chenet. All rights reserved.
-//
+
+/*********
+ 
+Jonah Katz and Zachary Chenet
+
+    University of Central Florida
+    COP 3402: System Software
+    Fall 2014
+
+    Homework #3 (Parser - Code Generator)
+ 
+*********/
+
 
 #include <stdio.h>

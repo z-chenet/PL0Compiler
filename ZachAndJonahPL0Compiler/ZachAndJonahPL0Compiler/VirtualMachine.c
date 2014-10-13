@@ -1,11 +1,16 @@
-//
-//  pMachine.c
-//  PMachine
-//
-//  Zachary Chenet
-//  September 7, 2014
-//  COP 3402
-//
+
+/*********
+ 
+ Jonah Katz and Zachary Chenet
+ 
+ University of Central Florida
+ COP 3402: System Software
+ Fall 2014
+ 
+ Homework #3 (Parser - Code Generator)
+ 
+ *********/
+
 
 #include <stdio.h>
 #include <stdlib.h>

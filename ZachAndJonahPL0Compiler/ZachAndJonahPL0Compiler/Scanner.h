@@ -1,12 +1,15 @@
-//
-//  Scanner.h
-//  LexScanner
-//
-//  Zachary Chenet
-//  Header file for the Scanner
-//  COP3402 System Software
-//
-//  
+
+/*********
+ 
+ Jonah Katz and Zachary Chenet
+ 
+ University of Central Florida
+ COP 3402: System Software
+ Fall 2014
+ 
+ Homework #3 (Parser - Code Generator)
+ 
+ *********/
 
 #include <stdio.h>
 #include <stdlib.h>
