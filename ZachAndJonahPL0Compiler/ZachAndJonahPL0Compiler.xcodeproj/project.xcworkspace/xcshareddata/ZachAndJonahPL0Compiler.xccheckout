@@ -10,41 +10,31 @@
 	<string>ZachAndJonahPL0Compiler</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D92C7491-65D7-4FD7-AE0F-7DA502B0B3F6</key>
+		<key>CED947F37F0CB659A3212FBF5AF07E03F7625259</key>
 		<string>https://github.com/z-chenet/PL0Compiler.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>53874C8B-0F00-47A2-8163-413C22B54101</key>
-		<string>../../../../ZachAndJonahCodeGenerator</string>
-		<key>D92C7491-65D7-4FD7-AE0F-7DA502B0B3F6</key>
+		<key>CED947F37F0CB659A3212FBF5AF07E03F7625259</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/z-chenet/PL0Compiler.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D92C7491-65D7-4FD7-AE0F-7DA502B0B3F6</string>
+	<string>CED947F37F0CB659A3212FBF5AF07E03F7625259</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D92C7491-65D7-4FD7-AE0F-7DA502B0B3F6</string>
+			<string>CED947F37F0CB659A3212FBF5AF07E03F7625259</string>
 			<key>IDESourceControlWCCName</key>
 			<string>PL0Compiler</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>53874C8B-0F00-47A2-8163-413C22B54101</string>
-			<key>IDESourceControlWCCName</key>
-			<string>ZachAndJonahCodeGenerator</string>
 		</dict>
 	</array>
 </dict>
