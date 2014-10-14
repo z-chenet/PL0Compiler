@@ -14,7 +14,15 @@
 #include "Scanner.h"
 
 
-int Scanner(int argc, const char * argv[])
+/*******
+ 
+ * The inputFile contains a P machine program
+ * Scans and produces lexeme table.
+ * Returns 1 if there is an error, 0 otherwise
+ 
+ *******/
+
+int Scanner(FILE* inputFile)
 {
     
     //  initial variables
