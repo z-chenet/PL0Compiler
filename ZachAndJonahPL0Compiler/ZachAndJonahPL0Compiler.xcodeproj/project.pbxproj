@@ -28,6 +28,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		264699E619E5C832006DA9D8 /* p01.pl0 */ = {isa = PBXFileReference; lastKnownFileType = text; name = p01.pl0; path = ../../../../Parser/testcases/tests/p01.pl0; sourceTree = "<group>"; };
+		264699E719E5C8DD006DA9D8 /* lexemelist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lexemelist.txt; sourceTree = "<group>"; };
+		264699E819E5C92F006DA9D8 /* stacktrace.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stacktrace.txt; sourceTree = "<group>"; };
 		26BA2C3B19E491CE005FEE7B /* ZachAndJonahPL0Compiler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZachAndJonahPL0Compiler; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BA2C3E19E491CE005FEE7B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ZachAndJonahPL0Compiler.1; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		26BA2C3D19E491CE005FEE7B /* ZachAndJonahPL0Compiler */ = {
 			isa = PBXGroup;
 			children = (
+				264699E619E5C832006DA9D8 /* p01.pl0 */,
 				26BA2C4F19E49365005FEE7B /* Parser.c */,
 				26BA2C5019E49365005FEE7B /* Parser.h */,
 				26BA2C5119E49365005FEE7B /* pMachine.c */,
@@ -75,6 +79,8 @@
 				26BA2C5319E49365005FEE7B /* Scanner.h */,
 				26BA2C3E19E491CE005FEE7B /* main.c */,
 				26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */,
+				264699E719E5C8DD006DA9D8 /* lexemelist.txt */,
+				264699E819E5C92F006DA9D8 /* stacktrace.txt */,
 			);
 			path = ZachAndJonahPL0Compiler;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				26BA2C4619E491CE005FEE7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
