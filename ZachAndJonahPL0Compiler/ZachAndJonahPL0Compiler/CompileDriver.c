@@ -13,16 +13,6 @@
  
  *********/
 
-#include <stdio.h>
-
-FILE *originalInputFileWithPCode;
-char* originalInputFileLocation = "/Users/jonahkatz/Desktop/hw3_test_case_1/input.txt";
-
-/* 
-    Input Switches
- */
-int shouldPrintStackTrace=0,shouldPrintLexeme=0,shouldPrintAssemblyCode=0;
-
 int main(int argc, const char * argv[])
 {
 
