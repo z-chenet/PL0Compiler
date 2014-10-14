@@ -14,7 +14,7 @@
 #include "Scanner.h"
 
 
-int main(int argc, const char * argv[])
+int Scanner(int argc, const char * argv[])
 {
     
     //  initial variables

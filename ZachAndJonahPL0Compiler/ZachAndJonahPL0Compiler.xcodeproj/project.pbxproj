@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19328FB419EC9DBA005542F6 /* IntermediateCodeGenerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 19328FB219EC9DBA005542F6 /* IntermediateCodeGenerator.c */; };
-		26BA2C3F19E491CE005FEE7B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C3E19E491CE005FEE7B /* main.c */; };
+		26BA2C3F19E491CE005FEE7B /* CompileDriver.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C3E19E491CE005FEE7B /* CompileDriver.c */; };
 		26BA2C4119E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */; };
 		26BA2C5419E49365005FEE7B /* Parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C4F19E49365005FEE7B /* Parser.c */; };
 		26BA2C5519E49365005FEE7B /* VirtualMachine.c in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2C5119E49365005FEE7B /* VirtualMachine.c */; };
@@ -31,8 +31,9 @@
 /* Begin PBXFileReference section */
 		19328FB219EC9DBA005542F6 /* IntermediateCodeGenerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IntermediateCodeGenerator.c; sourceTree = "<group>"; };
 		19328FB319EC9DBA005542F6 /* IntermediateCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntermediateCodeGenerator.h; sourceTree = "<group>"; };
+		19328FB519ECA3A2005542F6 /* CompileDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompileDriver.h; sourceTree = "<group>"; };
 		26BA2C3B19E491CE005FEE7B /* ZachAndJonahPL0Compiler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZachAndJonahPL0Compiler; sourceTree = BUILT_PRODUCTS_DIR; };
-		26BA2C3E19E491CE005FEE7B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		26BA2C3E19E491CE005FEE7B /* CompileDriver.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CompileDriver.c; sourceTree = "<group>"; };
 		26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ZachAndJonahPL0Compiler.1; sourceTree = "<group>"; };
 		26BA2C4F19E49365005FEE7B /* Parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Parser.c; sourceTree = "<group>"; };
 		26BA2C5019E49365005FEE7B /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
@@ -78,7 +79,8 @@
 				26BA2C5119E49365005FEE7B /* VirtualMachine.c */,
 				26BA2C5219E49365005FEE7B /* Scanner.c */,
 				26BA2C5319E49365005FEE7B /* Scanner.h */,
-				26BA2C3E19E491CE005FEE7B /* main.c */,
+				26BA2C3E19E491CE005FEE7B /* CompileDriver.c */,
+				19328FB519ECA3A2005542F6 /* CompileDriver.h */,
 				26BA2C4019E491CE005FEE7B /* ZachAndJonahPL0Compiler.1 */,
 			);
 			path = ZachAndJonahPL0Compiler;
@@ -138,7 +140,7 @@
 				19328FB419EC9DBA005542F6 /* IntermediateCodeGenerator.c in Sources */,
 				26BA2C5619E49365005FEE7B /* Scanner.c in Sources */,
 				26BA2C5419E49365005FEE7B /* Parser.c in Sources */,
-				26BA2C3F19E491CE005FEE7B /* main.c in Sources */,
+				26BA2C3F19E491CE005FEE7B /* CompileDriver.c in Sources */,
 				26BA2C5519E49365005FEE7B /* VirtualMachine.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

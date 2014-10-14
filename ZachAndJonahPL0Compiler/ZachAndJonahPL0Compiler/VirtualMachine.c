@@ -62,7 +62,7 @@ void handleInputOutput();
 int base(int l,int base);
 
 //  main
-int main(int argc, const char * argv[])
+int VirualMachine(int argc, const char * argv[])
 {
     //  initializes values
     stack[1] = 0;
