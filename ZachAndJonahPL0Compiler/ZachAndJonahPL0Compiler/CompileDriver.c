@@ -60,7 +60,15 @@ int main(int argc, const char * argv[])
     
     int doesScannerProduceError = Scanner(originalInputFileWithPCode);
     
+    if(doesScannerProduceError) {
+        fprintf(<#FILE *restrict#>, <#const char *restrict, ...#>)
+    }
+    
     /**************************** 2 ****************************/
+    
+    FILE *lexemeList = fopen(/* this will be the output of the scanner, but for now, its static */"/Users/jonahkatz/Desktop/hw3_test_case_1/lexemelist.txt", "r");
+    Scanner(lexemeList);
+    
     /**************************** 3 ****************************/
     /**************************** 4 ****************************/
 
@@ -70,4 +78,5 @@ int main(int argc, const char * argv[])
     
     return 0;
 }
+
 

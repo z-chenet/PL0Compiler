@@ -215,7 +215,7 @@ void error(int code);*/
  * Returns 1 if there is an error, 0 otherwise
  
  *******/
-int Scanner(FILE* inputFile)
+int Scanner(FILE* inputFile);
 
 //  function to check if the current word is a possible reserved word
 int isReservedWord(char *word){
