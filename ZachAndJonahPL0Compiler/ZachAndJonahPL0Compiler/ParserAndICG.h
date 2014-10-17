@@ -15,7 +15,7 @@
 
  *********/
 
-#include "Scanner.h"
+#include "Scanner.c"
 
 #define MAX_SYMBOL_TABLE_SIZE 100
 

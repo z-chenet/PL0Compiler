@@ -12,7 +12,7 @@
  *********/
 
 
-#include "ParserAndICG.h"
+#include "ParserAndICG.c"
 
 //  Constants
 #define MAX_STACK_HEIGHT 2000

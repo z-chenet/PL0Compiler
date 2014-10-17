@@ -14,7 +14,7 @@
  *********/
 
 #include "CompileDriver.h"
-#include "VirtualMachine.c"
+//#include "VirtualMachine.c"
 
 int main(int argc, const char * argv[])
 {
@@ -23,6 +23,7 @@ int main(int argc, const char * argv[])
     /*
      Check input switches
     */
+    
     int i=0;
     for (i=0; i < argc; i++)
     {
