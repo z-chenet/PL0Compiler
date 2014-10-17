@@ -15,4 +15,26 @@
 
  *********/
 
-void Parser(FILE* lexemeFile);
+#include "Scanner.h"
+
+#define MAX_SYMBOL_TABLE_SIZE 100
+
+typedef struct symbol
+{
+    int kind; 		// const = 1, var = 2, proc = 3
+    char name[12];	// name up to 11 chars
+    int val; 		// number (ASCII value)
+    int level; 	// L level
+    int addr; 		// M address
+} symbol;
+/*
+For constants, you must store kind, name and value.
+For variables, you must store kind, name, L and M.
+For procedures, you must store kind, name, L and M.
+*/
+
+symbol symbol_table[MAX_SYMBOL_TABLE_SIZE];
+
+
+void Parser(Token tokenList[MAX_FILE_SIZE]);
+

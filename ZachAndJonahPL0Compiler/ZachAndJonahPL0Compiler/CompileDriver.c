@@ -14,7 +14,7 @@
  *********/
 
 #include "CompileDriver.h"
-#include "Scanner.h"
+#include "VirtualMachine.c"
 
 int main(int argc, const char * argv[])
 {
@@ -58,18 +58,14 @@ int main(int argc, const char * argv[])
     
     **************************** 1 ****************************/
     
-    int doesScannerProduceError = Scanner(originalInputFileWithPCode);
+    //int doesScannerProduceError = Scanner(originalInputFileWithPCode);
     
-    if(doesScannerProduceError) {
-        fprintf(<#FILE *restrict#>, <#const char *restrict, ...#>)
-    }
+    /* HANDLE PRINTING OF THE LEXEMLIST AND THE ERROR/NO ERORR MESSAGE */
     
-    /**************************** 2 ****************************/
+    /**************************** 2 AND 3 ****************************/
     
-    FILE *lexemeList = fopen(/* this will be the output of the scanner, but for now, its static */"/Users/jonahkatz/Desktop/hw3_test_case_1/lexemelist.txt", "r");
-    Scanner(lexemeList);
-    
-    /**************************** 3 ****************************/
+    Parser(tokenList);
+
     /**************************** 4 ****************************/
 
     

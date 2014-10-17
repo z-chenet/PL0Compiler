@@ -19,9 +19,12 @@
 /***************************************************************************/
 /*                       Procedure and call not supported                  */
 //  after checking that program ends with perioid call HALT
-#include <stdio.h>
 
+#include "ParserAndICG.h"
 
-void Parser(FILE* lexemeFile) {
-    
+void Parser(Token tokenList[MAX_FILE_SIZE]) {
+    /*
+        - We have an array of tokens. Refer to Scanner.h for the Token definition
+        - We need to go token by token till the end of line creating the symbol table and checking for grammar errors
+     */
 }
