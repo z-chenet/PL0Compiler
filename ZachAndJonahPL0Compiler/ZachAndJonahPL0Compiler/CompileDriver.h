@@ -16,8 +16,8 @@
 #include "VirtualMachine.c"
 
 FILE *originalInputFileWithPCode;
-char* originalInputFileLocation = "/Users/jonahkatz/Desktop/hw3_test_case_1/input.txt";
-
+//char* originalInputFileLocation = "input.txt";
+char* originalInputFileLocation = "/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/input.txt";
 
 /*
  Input Switches

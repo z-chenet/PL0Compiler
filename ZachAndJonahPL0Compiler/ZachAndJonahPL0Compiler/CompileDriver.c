@@ -59,13 +59,17 @@ int main(int argc, const char * argv[])
     
     **************************** 1 ****************************/
     
-    //int doesScannerProduceError = Scanner(originalInputFileWithPCode);
+    int doesScannerProduceError = Scanner(originalInputFileWithPCode);
     
     /* HANDLE PRINTING OF THE LEXEMLIST AND THE ERROR/NO ERORR MESSAGE */
     
     /**************************** 2 AND 3 ****************************/
     
-    Parser(tokenList);
+    FILE *mcodeOutput = fopen("mcode.txt", "r,w");
+    
+    Parser(tokenList, mcodeOutput);
+    fclose(mcodeOutput);
+    
 
     /**************************** 4 ****************************/
 

@@ -19,14 +19,22 @@
 
 #define MAX_SYMBOL_TABLE_SIZE 100
 
-typedef struct symbol
+typedef struct
 {
     int kind; 		// const = 1, var = 2, proc = 3
     char name[12];	// name up to 11 chars
     int val; 		// number (ASCII value)
-    int level; 	// L level
+    int level;      // L level
     int addr; 		// M address
 } symbol;
+
+typedef struct
+{
+    int OP;
+    int L;
+    int M;
+    
+}instruction;
 /*
 For constants, you must store kind, name and value.
 For variables, you must store kind, name, L and M.
@@ -34,7 +42,58 @@ For procedures, you must store kind, name, L and M.
 */
 
 symbol symbol_table[MAX_SYMBOL_TABLE_SIZE];
+Token currentToken;
+int currentSymbolTableIndex = 0;
+int currentTokenTableIndex = 0;
 
 
-void Parser(Token tokenList[MAX_FILE_SIZE]);
+instruction mCodeTable[MAX_FILE_SIZE];
+int currentMCodeTableIndex = 0;
+
+int currentMAddress = 0;
+int lexiLevel = 0; //   always zero
+
+
+void Parser(Token tokenList[MAX_FILE_SIZE], FILE *outputFile);
+
+void getToken();
+void block();
+void emit(int op, int l, int m);
+void constDeclaration();
+void parserErrors();
+void enterInSymbolTable(int type, Token token, int l, int m, int value);
+int convertToInt(char *number);
+void varDeclaration();
+void procDeclaration();
+void statement();
+int searchSymbolTableForIdentifier(char *identifier);
+void expression();
+void term();
+void factor();
+void finishedProcedure(int level);
+void condition();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

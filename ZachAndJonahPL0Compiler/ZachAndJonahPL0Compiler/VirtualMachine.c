@@ -26,11 +26,11 @@ const char* OPCODE_STRING[] = {"N/A", "LIT", "OPR", "LOD", "STO", "CAL",
 const char* STACK_OP_STRING[] = {"RET", "NEG", "ADD", "SUB", "MUL", "DIV", "ODD",
                                         "MOD", "EQL", "NEQ", "LSS", "LEQ", "GTR", "GEQ"};
 //  struct for the instructions
-typedef struct{
+/*typedef struct{
     int OP;
     int L;
     int M;
-}instruction;
+}instruction;*/
 
 //  global arrays
 int stack[MAX_STACK_HEIGHT];
@@ -68,7 +68,7 @@ int VirualMachine(int argc, const char * argv[])
     stack[2] = 0;
     stack[3] = 0;
     
-    input = fopen("mcode.txt", "r");
+    //input = fopen("mcode.txt", "r");
     //(if input){
     //  local variables to keep track of inputs and values saved
     int OP_code;

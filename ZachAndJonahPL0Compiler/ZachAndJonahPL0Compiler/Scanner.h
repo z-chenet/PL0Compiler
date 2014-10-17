@@ -194,9 +194,9 @@ int tokenIndex = 0;
 
 //  Files pointers for the input and output
 FILE *input;
-FILE *cleanInput;
+//FILE *cleanInput;
 FILE *lexemeList;
-FILE *lexemeTable;
+//FILE *lexemeTable;
 
 /*
 int isReservedWord(char *word);
@@ -280,6 +280,7 @@ void error(int code){
     exit(1);
 }
 
+/*
 //  function to handle printing the clean input
 void printInput(char currentChar){
     fprintf(cleanInput, "%c", currentChar);
@@ -296,12 +297,11 @@ void printLexemeTable(){
         fprintf(lexemeTable, "%-11s\t%d\n", tokenList[i].name, tokenList[i].tokenID);
     }
     fprintf(lexemeTable, "\n");
-}
+}*/
 
 //  function to handle printing the lexemelist
 void printLexemeList(){
     fprintf(lexemeList, "Lexeme List:\n");
-    
     //  for loop to print the lexemelist in order and adds the values if of the possible variables if necessary
     int i;
     for (i = 0; i < tokenIndex; i++) {
