@@ -22,7 +22,7 @@
 
 #include "ParserAndICG.h"
 
-void Parser(Token tokenList[MAX_FILE_SIZE], FILE *outputFile) {
+void Parser(Token tokenList[MAX_FILE_SIZE]) {
     /*
         - We have an array of tokens. Refer to Scanner.h for the Token definition
         - We need to go token by token till the end of line creating the symbol table and checking for grammar errors
@@ -40,7 +40,6 @@ void Parser(Token tokenList[MAX_FILE_SIZE], FILE *outputFile) {
 void getToken(){
     currentToken = tokenList[currentTokenTableIndex];
     currentTokenTableIndex++;
-    printf("TOKEN:: %d", currentToken.tokenID);
 }
 
 void block(){
@@ -112,7 +111,6 @@ void constDeclaration(){
     } while (currentToken.tokenID == commasym);
     
     if (currentToken.tokenID != semicolonsym) {
-printf("TEST8 ");
         parserErrors(5);
     }
     
@@ -133,9 +131,7 @@ void varDeclaration(){
     } while (currentToken.tokenID == commasym);
     
     if (currentToken.tokenID != semicolonsym) {
-        printf("AFTER%d\n\n" , currentToken.tokenID);
-
-        printf("secondSpot\n");
+       
         parserErrors(5);
     }
     
@@ -164,7 +160,6 @@ void procDeclaration(){
     lexiLevel--;
     
     if (currentToken.tokenID != semicolonsym) {
-        printf("TEST5 ");
         parserErrors(5);
     }
     getToken();
@@ -287,28 +282,31 @@ void statement(){
 
 void expression(){
     int currentOperation;
+
     if (currentToken.tokenID == plussym || currentToken.tokenID == minussym) {
+
         currentOperation = currentToken.tokenID;
         
         if (currentOperation == minussym) {
             emit(2, 0, 1);
         }
         
+    }
+    term();
+    
+    while (currentToken.tokenID == plussym || currentToken.tokenID == minussym) {
+        currentOperation = currentToken.tokenID;
+        getToken();
         term();
-        
-        while (currentToken.tokenID == plussym || currentToken.tokenID == minussym) {
-            currentOperation = currentToken.tokenID;
-            getToken();
-            term();
-            if (currentOperation == plussym) {
-                emit(2, 0, 2);
-                
-            }
-            else{
-                emit(2, 0, 3);
-            }
+        if (currentOperation == plussym) {
+            emit(2, 0, 2);
+            
+        }
+        else{
+            emit(2, 0, 3);
         }
     }
+    
 }
 
 void term(){
@@ -544,6 +542,15 @@ void finishedProcedure(int level){
         if (symbol_table[i].level == level && symbol_table[i].kind != 3) {
             symbol_table[i].addr = 1;
         }
+    }
+}
+
+
+void printMcodeToFile(FILE* mcodeOutput) {
+
+    int i;
+    for(i=0;i<currentMCodeTableIndex;i++) {
+        fprintf(mcodeOutput,"%d %d %d\n",mCodeTable[i].OP,mCodeTable[i].L,mCodeTable[i].M);
     }
 }
 

@@ -54,7 +54,7 @@ int currentMAddress = 0;
 int lexiLevel = 0; //   always zero
 
 
-void Parser(Token tokenList[MAX_FILE_SIZE], FILE *outputFile);
+void Parser(Token tokenList[MAX_FILE_SIZE]);
 
 void getToken();
 void block();
@@ -72,6 +72,8 @@ void term();
 void factor();
 void finishedProcedure(int level);
 void condition();
+void printMcodeToFile(FILE* mcodeOutput);
+
 
 
 

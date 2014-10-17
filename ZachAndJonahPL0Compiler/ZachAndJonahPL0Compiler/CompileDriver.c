@@ -65,9 +65,10 @@ int main(int argc, const char * argv[])
     
     /**************************** 2 AND 3 ****************************/
     
-    FILE *mcodeOutput = fopen("mcode.txt", "r,w");
+    FILE *mcodeOutput = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/mcode.txt", "w");
     
-    Parser(tokenList, mcodeOutput);
+    Parser(tokenList);
+    printMcodeToFile(mcodeOutput);
     fclose(mcodeOutput);
     
 
