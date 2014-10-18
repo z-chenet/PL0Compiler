@@ -28,9 +28,13 @@ void Parser(Token tokenList[MAX_FILE_SIZE]) {
         - We need to go token by token till the end of line creating the symbol table and checking for grammar errors
      */
     
-    getToken();
-    block();
+    //getToken();
+    //block();
+    run();
     
+    if (errorOccured == 0) {
+        printf("No errors, program is syntactically correct.\n");
+    }
     
     
     
@@ -42,11 +46,21 @@ void getToken(){
     currentTokenTableIndex++;
 }
 
+void run(){
+    getToken();
+    
+    block();
+    if (currentToken.tokenID != periodsym) {
+        parserErrors(9);
+    }
+
+}
+
 void block(){
     int tempBlockIndex = currentMCodeTableIndex;
     
     //  because first call is always jump
-    emit(7, 0, 0);
+    //emit(7, 0, 0);
 
     if (currentToken.tokenID == constsym) {
         constDeclaration();
@@ -64,11 +78,11 @@ void block(){
     
     mCodeTable[tempBlockIndex].M = currentMAddress;
     
-    emit(6, 0, 4 + tempMaddress);
+    emit(6, 0, tempMaddress);
     
     statement();
     
-    emit(2, 0, 0);
+    emit(11, 0, 3);
     
     
 }
@@ -124,7 +138,7 @@ void varDeclaration(){
             parserErrors(4);
         }
         
-        enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress + 4, 0);
+        enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress , 0);
         
         getToken();
         
@@ -217,12 +231,16 @@ void statement(){
     else if (currentToken.tokenID == beginsym){
         getToken();
         statement();
+        printf("TESTING\n %d\n", currentToken.tokenID);
         
         while (currentToken.tokenID == semicolonsym) {
             getToken();
             statement();
+            printf("SYMBOL THAT IS WRONG::%d\n", currentToken.tokenID);
+            //  after statement symbol is 32 for some reason
         }
         
+        //  error here
         if (currentToken.tokenID != endsym) {
             parserErrors(17);
         }
@@ -441,7 +459,7 @@ void enterInSymbolTable(int type, Token token, int l, int m, int value){
 }
 
 void parserErrors(int code){
-    
+    errorOccured = 1;
     switch (code) {
         case 1:
             printf("Use = instead of :=.\n");

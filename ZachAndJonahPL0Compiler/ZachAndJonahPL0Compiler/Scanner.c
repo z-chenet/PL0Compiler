@@ -31,7 +31,7 @@ int Scanner(FILE* inputFile)
     
     input = inputFile;
     //inputFile = fopen(<#const char *restrict#>, <#const char *restrict#>)
-    lexemeList = fopen("lexemelist.txt", "w");
+    lexemeList = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/lexemelist.txt", "w");
 
     
     

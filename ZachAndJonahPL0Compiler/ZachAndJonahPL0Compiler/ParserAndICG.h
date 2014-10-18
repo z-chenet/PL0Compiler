@@ -53,6 +53,8 @@ int currentMCodeTableIndex = 0;
 int currentMAddress = 0;
 int lexiLevel = 0; //   always zero
 
+int errorOccured = 0;
+
 
 void Parser(Token tokenList[MAX_FILE_SIZE]);
 
@@ -73,6 +75,7 @@ void factor();
 void finishedProcedure(int level);
 void condition();
 void printMcodeToFile(FILE* mcodeOutput);
+void run();
 
 
 
