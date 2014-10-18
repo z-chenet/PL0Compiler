@@ -183,15 +183,13 @@ void procDeclaration(){
 
 void statement(){
     if (currentToken.tokenID == identsym) {
-        printf("%d", currentToken.tokenID);
-        printf("%s", currentToken.name);
+
         
         int symbolLocation = searchSymbolTableForIdentifier(currentToken.name);
-        printf("%d\n", symbolLocation);
+
         
         /*error occuring here*/
         if (symbolLocation == -1) {
-            printf("3:: %d\n\n", currentToken.tokenID);
             parserErrors(11);
         }
         if (symbol_table[symbolLocation].kind == 1) {
