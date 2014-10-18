@@ -47,7 +47,7 @@ instruction IR;
 int codeLength;
 int halt = 0;
 int levels;
-FILE* input;
+//FILE* input;
 FILE* output;
 
 //  functions
@@ -61,7 +61,7 @@ void handleInputOutput();
 int base(int l,int base);
 
 //  main
-int VirualMachine(int argc, const char * argv[])
+int VirualMachine(FILE *input)
 {
     //  initializes values
     stack[1] = 0;
@@ -88,13 +88,13 @@ int VirualMachine(int argc, const char * argv[])
         code[i].L = L_code;
         code[i].M = M_code;
         
+        
         i++;
     }
     
     codeLength = i;
  
-    output = fopen("stacktrace.txt", "w");
-    
+    output = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/stacktrace.txt", "w");
     
     
     //  prints the code that is being input
@@ -102,6 +102,9 @@ int VirualMachine(int argc, const char * argv[])
     
     //  runs the code
     execute();
+    fclose(output);
+    
+
         
     
     return 0;
@@ -109,8 +112,9 @@ int VirualMachine(int argc, const char * argv[])
 
 //  function to handle printing the list of inputted code in OP L M format
 void printCodeInputs(){
+    fprintf(output, "Stacktrace Code:\n");
     int i;
-    fprintf(output, "Line\t OP\t L\t M\n");
+    fprintf(output, "Line\t OP\t L\t  M\n");
     for (i = 0; i < codeLength; i++) {
         printCurrentCode(i);
         fprintf(output, "\n");
@@ -146,8 +150,9 @@ void printStackElements(){
 
 //  function to execute the given set of instructions
 void execute(){
-    fprintf(output, "\t\t\t\t  PC\t BP\t  SP\t  Stack\n");
-    fprintf(output, "Initial Values\t\t\t %2d\t %2d\t %3d", PC, BP, SP);
+    fprintf(output, "Stacktrace:\n");
+    fprintf(output, "\t\t\t\t  PC\t\t BP\t\t SP\t\tStack\n");
+    fprintf(output, "Initial Values\t\t\t %2d\t\t %2d\t\t%3d", PC, BP, SP);
     printStackElements();
     
     while (BP > 0 && halt == 0) {
@@ -155,7 +160,7 @@ void execute(){
             printCurrentCode(PC);
             fetchExecuteInstruction();
             
-            fprintf(output, "\t %2d\t %2d\t %3d\t ", PC, BP, SP);
+            fprintf(output, "\t %2d\t\t %2d\t\t%3d\t\t", PC, BP, SP);
             printStackElements();
         }
     }

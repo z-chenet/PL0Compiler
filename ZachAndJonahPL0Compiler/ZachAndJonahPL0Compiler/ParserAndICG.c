@@ -506,11 +506,6 @@ void enterInSymbolTable(int type, Token token, int l, int m, int value){
 void parserErrors(int code){
     errorOccured = 1;
     
-    int i;
-    for(i=0;i<currentMCodeTableIndex;i++) {
-        printf("%d %d %d\n",mCodeTable[i].OP,mCodeTable[i].L,mCodeTable[i].M);
-    }
-    
     switch (code) {
         case 1:
             printf("Use = instead of :=.\n");
@@ -620,6 +615,9 @@ void finishedProcedure(int level){
 
 void printMcodeToFile(FILE* mcodeOutput) {
 
+    fprintf(mcodeOutput, "\n");
+    
+    //fprintf(mcodeOutput, "testing\n");
     int i;
     for(i=0;i<currentMCodeTableIndex;i++) {
         fprintf(mcodeOutput,"%d %d %d\n",mCodeTable[i].OP,mCodeTable[i].L,mCodeTable[i].M);

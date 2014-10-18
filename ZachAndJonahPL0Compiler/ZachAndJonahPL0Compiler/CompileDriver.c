@@ -59,7 +59,8 @@ int main(int argc, const char * argv[])
     
     **************************** 1 ****************************/
     
-    int doesScannerProduceError = Scanner(originalInputFileWithPCode);
+    //int doesScannerProduceError = Scanner(originalInputFileWithPCode, shouldPrintLexeme);
+    Scanner(originalInputFileWithPCode);
     
     /* HANDLE PRINTING OF THE LEXEMLIST AND THE ERROR/NO ERORR MESSAGE */
     
@@ -71,9 +72,65 @@ int main(int argc, const char * argv[])
     printMcodeToFile(mcodeOutput);
     fclose(mcodeOutput);
     
-
+    
     /**************************** 4 ****************************/
 
+    //  virtual machine
+    mcodeOutput = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/mcode.txt", "r" );
+    
+
+    
+    VirualMachine(mcodeOutput);
+    
+    //  places print statements here so that if it has to print out anything it it finishes running before printing any of the files out to console
+    //  handles prints by printing already made files char by char
+    
+    if (shouldPrintLexeme == 1) {
+        printf("\n");
+
+        printf("\n");
+        int c;
+        //FILE *file;
+        lexemeList = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/lexemelist.txt", "r");
+        if (lexemeList) {
+            while ((c = getc(lexemeList)) != EOF)
+                putchar(c);
+            fclose(lexemeList);
+        }
+        printf("\n");
+
+    }
+    
+    if (shouldPrintAssemblyCode == 1) {
+        
+        printf("\n");
+        printf("Assembly Code:\n");
+        int c;
+        //FILE *file;
+        mcodeOutput = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/mcode.txt", "r");
+        if (mcodeOutput) {
+            while ((c = getc(mcodeOutput)) != EOF)
+                putchar(c);
+            fclose(mcodeOutput);
+        }
+        printf("\n");
+
+    }
+    
+    //  if the -v argument was made then it goes through and prints everything in the file
+    if (shouldPrintStackTrace == 1) {
+        printf("\n");
+
+        int c;
+        //FILE *file;
+        output = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/stacktrace.txt", "r");
+        if (output) {
+            while ((c = getc(output)) != EOF)
+                putchar(c);
+            fclose(output);
+        }
+        printf("\n");
+    }
     
     fclose(originalInputFileWithPCode);
     

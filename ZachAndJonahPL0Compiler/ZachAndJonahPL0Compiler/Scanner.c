@@ -30,7 +30,6 @@ int Scanner(FILE* inputFile)
     int specialSymbolChar;
     
     input = inputFile;
-    //inputFile = fopen(<#const char *restrict#>, <#const char *restrict#>)
     lexemeList = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/lexemelist.txt", "w");
 
     
@@ -315,6 +314,8 @@ int Scanner(FILE* inputFile)
     //fclose(cleanInput);
     //fclose(lexemeTable);
     fclose(lexemeList);
+    
+
     
     return 0;
 }
