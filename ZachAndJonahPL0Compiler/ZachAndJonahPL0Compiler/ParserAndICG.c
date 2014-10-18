@@ -183,8 +183,15 @@ void procDeclaration(){
 
 void statement(){
     if (currentToken.tokenID == identsym) {
+        printf("%d", currentToken.tokenID);
+        printf("%s", currentToken.name);
+        
         int symbolLocation = searchSymbolTableForIdentifier(currentToken.name);
+        printf("%d\n", symbolLocation);
+        
+        /*error occuring here*/
         if (symbolLocation == -1) {
+            printf("3:: %d\n\n", currentToken.tokenID);
             parserErrors(11);
         }
         if (symbol_table[symbolLocation].kind == 1) {
@@ -239,14 +246,14 @@ void statement(){
             statement();
             //  after statement symbol is 32 for some reason
         }
-        
+        //printf("TEST HERE :: %d\n\n", currentToken.tokenID);
         //  error here
         if (currentToken.tokenID != endsym) {
             parserErrors(17);
         }
         
         getToken();
-        finishedProcedure(lexiLevel);
+        //finishedProcedure(lexiLevel);
     }
     else if (currentToken.tokenID == ifsym){
         getToken();
@@ -304,12 +311,15 @@ void statement(){
             if (symbol_index == -1) {
                 parserErrors(11);
             }
+            getToken();
             
             //  adds the read in statement to the mcode
             emit(10, 0, 2);
             
             //  adds the increment statement to the mcode
             emit(4, 0, symbol_table[symbol_index].addr);
+            
+            //emit(3, 0, symbol_table[symbol_index].addr);
         }
         
     }
@@ -322,6 +332,8 @@ void statement(){
             if (symbol_index == -1) {
                 parserErrors(11);
             }
+            
+            getToken();
             
             //  loads the value write to console
             emit(3, 0, symbol_table[symbol_index].addr);
@@ -595,14 +607,17 @@ int convertToInt(char *number){
     return temp;
 }
 
+//  this isnt really needed it was causing the second sample input to crash because it was removing things from the symbol table that was still needed
+/*
 void finishedProcedure(int level){
+    printf("entered here\n");
     int i;
     for (i = currentSymbolTableIndex - 1; i >= 0; i--) {
         if (symbol_table[i].level == level && symbol_table[i].kind != 3) {
             symbol_table[i].addr = -1;
         }
     }
-}
+}*/
 
 
 void printMcodeToFile(FILE* mcodeOutput) {
