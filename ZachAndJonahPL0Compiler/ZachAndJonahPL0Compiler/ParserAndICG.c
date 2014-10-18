@@ -50,6 +50,8 @@ void run(){
     getToken();
     
     block();
+    emit(11, 0, 3);
+    
     if (currentToken.tokenID != periodsym) {
         parserErrors(9);
     }
@@ -82,7 +84,7 @@ void block(){
     
     statement();
     
-    emit(11, 0, 3);
+    //emit(11, 0, 3);
     
     
 }
@@ -231,12 +233,10 @@ void statement(){
     else if (currentToken.tokenID == beginsym){
         getToken();
         statement();
-        printf("TESTING\n %d\n", currentToken.tokenID);
         
         while (currentToken.tokenID == semicolonsym) {
             getToken();
             statement();
-            printf("SYMBOL THAT IS WRONG::%d\n", currentToken.tokenID);
             //  after statement symbol is 32 for some reason
         }
         
@@ -294,6 +294,41 @@ void statement(){
         emit(7, 0, tempIndex1);
         
         mCodeTable[tempIndex2].M = currentMCodeTableIndex;
+    }
+    else if (currentToken.tokenID == readsym){
+        getToken();
+        
+        if (currentToken.tokenID == identsym) {
+            int symbol_index = searchSymbolTableForIdentifier(currentToken.name);
+            //printf("TESTING :: %d\n", symbol_index);
+            if (symbol_index == -1) {
+                parserErrors(11);
+            }
+            
+            //  adds the read in statement to the mcode
+            emit(10, 0, 2);
+            
+            //  adds the increment statement to the mcode
+            emit(4, 0, symbol_table[symbol_index].addr);
+        }
+        
+    }
+    else if (currentToken.tokenID == writesym){
+        getToken();
+        
+        if (currentToken.tokenID == identsym) {
+            int symbol_index = searchSymbolTableForIdentifier(currentToken.name);
+            
+            if (symbol_index == -1) {
+                parserErrors(11);
+            }
+            
+            //  loads the value write to console
+            emit(3, 0, symbol_table[symbol_index].addr);
+            
+            //  adds output statement to the mcode
+            emit(9, 0, 1);
+        }
     }
     
 }
@@ -460,6 +495,12 @@ void enterInSymbolTable(int type, Token token, int l, int m, int value){
 
 void parserErrors(int code){
     errorOccured = 1;
+    
+    int i;
+    for(i=0;i<currentMCodeTableIndex;i++) {
+        printf("%d %d %d\n",mCodeTable[i].OP,mCodeTable[i].L,mCodeTable[i].M);
+    }
+    
     switch (code) {
         case 1:
             printf("Use = instead of :=.\n");
@@ -558,7 +599,7 @@ void finishedProcedure(int level){
     int i;
     for (i = currentSymbolTableIndex - 1; i >= 0; i--) {
         if (symbol_table[i].level == level && symbol_table[i].kind != 3) {
-            symbol_table[i].addr = 1;
+            symbol_table[i].addr = -1;
         }
     }
 }
