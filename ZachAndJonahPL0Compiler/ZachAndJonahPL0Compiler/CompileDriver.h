@@ -17,7 +17,7 @@
 
 FILE *originalInputFileWithPCode;
 //char* originalInputFileLocation = "input.txt";
-char* originalInputFileLocation = "/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/input.txt";
+char* originalInputFileLocation = "input.txt";
 
 /*
  Input Switches

@@ -41,42 +41,23 @@ int main(int argc, const char * argv[])
         }
     }
     
+    //  opens input.txt
     originalInputFileWithPCode = fopen(originalInputFileLocation, "r");
-    
-    
-    /********************************************************************************
-     
-     We have 4 main things to do:
-     
-     1. Supply the input file to the Scanner which will check for errors and generates the lexeme list to lexeme.txt
-     2. Handle any errors (or lack thereof) caught by the Scanner and generate the Symbol table
-     3. Pass the symbols to the intermediate code generator which will produce the 'machine code'
-     4. Pass the machine code to the Virtual Machine 
-     
-     
-     ********************************************************************************
-    
-    
-    **************************** 1 ****************************/
-    
-    //int doesScannerProduceError = Scanner(originalInputFileWithPCode, shouldPrintLexeme);
+
+    //  scans in the input and saves it to lexemelist inside the Scanner file
     Scanner(originalInputFileWithPCode);
+
     
-    /* HANDLE PRINTING OF THE LEXEMLIST AND THE ERROR/NO ERORR MESSAGE */
-    
-    /**************************** 2 AND 3 ****************************/
-    
-    FILE *mcodeOutput = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/mcode.txt", "w");
+    //  opens and handles the parser call
+    //  closes file after so we can open to be read later for the virtual machine
+    FILE *mcodeOutput = fopen("mcode.txt", "w");
     
     Parser(tokenList);
     printMcodeToFile(mcodeOutput);
     fclose(mcodeOutput);
     
-    
-    /**************************** 4 ****************************/
-
     //  virtual machine
-    mcodeOutput = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/mcode.txt", "r" );
+    mcodeOutput = fopen("mcode.txt", "r" );
     
 
     
@@ -91,7 +72,7 @@ int main(int argc, const char * argv[])
         printf("\n");
         int c;
         //FILE *file;
-        lexemeList = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/lexemelist.txt", "r");
+        lexemeList = fopen("lexemelist.txt", "r");
         if (lexemeList) {
             while ((c = getc(lexemeList)) != EOF)
                 putchar(c);
@@ -107,7 +88,7 @@ int main(int argc, const char * argv[])
         printf("Assembly Code:\n");
         int c;
         //FILE *file;
-        mcodeOutput = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/mcode.txt", "r");
+        mcodeOutput = fopen("mcode.txt", "r");
         if (mcodeOutput) {
             while ((c = getc(mcodeOutput)) != EOF)
                 putchar(c);
@@ -122,12 +103,12 @@ int main(int argc, const char * argv[])
         printf("\n");
 
         int c;
-        //FILE *file;
-        output = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/stacktrace.txt", "r");
-        if (output) {
-            while ((c = getc(output)) != EOF)
+        FILE *file;
+        file = fopen("stacktrace.txt", "r");
+        if (file) {
+            while ((c = getc(file)) != EOF)
                 putchar(c);
-            fclose(output);
+            fclose(file);
         }
         printf("\n");
     }

@@ -94,7 +94,7 @@ int VirualMachine(FILE *input)
     
     codeLength = i;
  
-    output = fopen("/Users/zacharychenet/Google Drive/School/fall14/COP3402SystemSoftware/assignment/ZachAndJonahCodeGenerator/PL0Compiler/ZachAndJonahPL0Compiler/ZachAndJonahPL0Compiler/stacktrace.txt", "w");
+    output = fopen("stacktrace.txt", "w");
     
     
     //  prints the code that is being input
@@ -112,7 +112,7 @@ int VirualMachine(FILE *input)
 
 //  function to handle printing the list of inputted code in OP L M format
 void printCodeInputs(){
-    fprintf(output, "Stacktrace Code:\n");
+    fprintf(output, "Stacktrace Code:\n\n");
     int i;
     fprintf(output, "Line\t OP\t L\t  M\n");
     for (i = 0; i < codeLength; i++) {
@@ -150,7 +150,7 @@ void printStackElements(){
 
 //  function to execute the given set of instructions
 void execute(){
-    fprintf(output, "Stacktrace:\n");
+    fprintf(output, "\nStacktrace:\n");
     fprintf(output, "\t\t\t\t  PC\t\t BP\t\t SP\t\tStack\n");
     fprintf(output, "Initial Values\t\t\t %2d\t\t %2d\t\t%3d", PC, BP, SP);
     printStackElements();
