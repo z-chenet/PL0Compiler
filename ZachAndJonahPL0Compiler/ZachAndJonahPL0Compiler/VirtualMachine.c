@@ -49,19 +49,20 @@ int halt = 0;
 int levels;
 //FILE* input;
 FILE* output;
+FILE* stackTraceOutput;
 
 //  functions
 void printCodeInputs();
 void printCurrentCode(int line);
 void printStackElements();
-void execute();
+void execute(int shouldPrintStackTrace);
 void fetchExecuteInstruction();
 void stackExecutions();
 void handleInputOutput();
 int base(int l,int base);
 
 //  main
-int VirualMachine(FILE *input)
+int VirualMachine(FILE *input, int shouldPrintStackTrace)
 {
     //  initializes values
     stack[1] = 0;
@@ -101,8 +102,12 @@ int VirualMachine(FILE *input)
     printCodeInputs();
     
     //  runs the code
-    execute();
+    
+    //prepare temp stacktarce file
+    stackTraceOutput = fopen("stacktraceTemp.txt", "w");
+    execute(shouldPrintStackTrace);
     fclose(output);
+    fclose(stackTraceOutput);
     
 
         
@@ -127,7 +132,7 @@ void printCurrentCode(int line){
 }
 
 //  function to print the stack elements of the current indexed instruction
-void printStackElements(){
+void printStackElements(int shouldPrintStackTrace){
 
     levels = 0;
     
@@ -137,23 +142,42 @@ void printStackElements(){
         //  if so add its index to the basepointers array
         if (i == BP && BP != 1){
             fprintf(output, "| ");
+            if(shouldPrintStackTrace == 1) {
+                fprintf(stackTraceOutput, "| ");
+            }
             basePointers[levels] = i;
         }
         else if(i == basePointers[levels]){
+            if(shouldPrintStackTrace == 1) {
+                fprintf(stackTraceOutput, "| ");
+            }
             fprintf(output, "| ");
             levels++;
         }
+        if(shouldPrintStackTrace == 1) {
+            fprintf(stackTraceOutput, "%d ", stack[i]);
+        }
+
         fprintf(output, "%d ", stack[i]);
+    }
+    if(shouldPrintStackTrace == 1) {
+        fprintf(stackTraceOutput, "\n");
     }
     fprintf(output, "\n");
 }
 
 //  function to execute the given set of instructions
-void execute(){
+void execute(int shouldPrintStackTrace){
+    if(shouldPrintStackTrace == 1) {
+        fprintf(stackTraceOutput, "\nStacktrace:\n");
+        fprintf(stackTraceOutput, "\t  PC\t\t BP\t\t SP\t\tStack\n");
+        fprintf(stackTraceOutput, "\t %2d\t\t %2d\t\t%3d", PC, BP, SP);
+    }
+    
     fprintf(output, "\nStacktrace:\n");
     fprintf(output, "\t\t\t\t  PC\t\t BP\t\t SP\t\tStack\n");
     fprintf(output, "Initial Values\t\t\t %2d\t\t %2d\t\t%3d", PC, BP, SP);
-    printStackElements();
+    printStackElements(shouldPrintStackTrace);
     
     while (BP > 0 && halt == 0) {
         if (PC < codeLength) {
@@ -161,10 +185,15 @@ void execute(){
             fetchExecuteInstruction();
             
             fprintf(output, "\t %2d\t\t %2d\t\t%3d\t\t", PC, BP, SP);
-            printStackElements();
+            if(shouldPrintStackTrace == 1) {
+                fprintf(stackTraceOutput, "\t %2d\t\t %2d\t\t%3d\t\t", PC, BP, SP);
+            }
+            printStackElements(shouldPrintStackTrace);
         }
     }
 }
+
+
 
 //  function to execute the next I
 void fetchExecuteInstruction(){

@@ -301,7 +301,6 @@ void printLexemeTable(){
 
 //  function to handle printing the lexemelist
 void printLexemeList(){
-    fprintf(lexemeList, "Lexeme List:\n\n");
     //  for loop to print the lexemelist in order and adds the values if of the possible variables if necessary
     int i;
     for (i = 0; i < tokenIndex; i++) {

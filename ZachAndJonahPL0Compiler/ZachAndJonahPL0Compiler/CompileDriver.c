@@ -61,15 +61,12 @@ int main(int argc, const char * argv[])
     
 
     
-    VirualMachine(mcodeOutput);
+    VirualMachine(mcodeOutput,shouldPrintStackTrace);
     
     //  places print statements here so that if it has to print out anything it it finishes running before printing any of the files out to console
     //  handles prints by printing already made files char by char
     
     if (shouldPrintLexeme == 1) {
-        printf("\n");
-
-        printf("\n");
         int c;
         //FILE *file;
         lexemeList = fopen("lexemelist.txt", "r");
@@ -79,7 +76,10 @@ int main(int argc, const char * argv[])
             fclose(lexemeList);
         }
         printf("\n");
-
+        
+            if (errorOccured == 0) {
+                printf("No errors, program is syntactically correct.\n");
+            }
     }
     
     if (shouldPrintAssemblyCode == 1) {
@@ -104,13 +104,14 @@ int main(int argc, const char * argv[])
 
         int c;
         FILE *file;
-        file = fopen("stacktrace.txt", "r");
+        file = fopen("stacktraceTemp.txt", "r");
         if (file) {
             while ((c = getc(file)) != EOF)
                 putchar(c);
             fclose(file);
         }
         printf("\n");
+        
     }
     
     fclose(originalInputFileWithPCode);

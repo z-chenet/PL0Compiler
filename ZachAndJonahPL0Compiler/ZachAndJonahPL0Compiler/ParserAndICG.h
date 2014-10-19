@@ -72,7 +72,6 @@ int searchSymbolTableForIdentifier(char *identifier);
 void expression();
 void term();
 void factor();
-void finishedProcedure(int level);
 void condition();
 void printMcodeToFile(FILE* mcodeOutput);
 void run();

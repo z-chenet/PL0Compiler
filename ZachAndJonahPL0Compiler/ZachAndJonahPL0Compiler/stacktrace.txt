@@ -1,0 +1,23 @@
+Stacktrace Code:
+
+Line	 OP	 L	  M
+  0	INC	 0	  2
+  1	LIT	 0	  5
+  2	STO	 0	  1
+  3	LOD	 0	  1
+  4	LIT	 0	 56
+  5	OPR	 0	  2
+  6	STO	 0	  0
+  7	SIO	 0	  3
+
+Stacktrace:
+				  PC		 BP		 SP		Stack
+Initial Values			  0		  1		  0
+  0	INC	 0	  2	  1		  1		  2		0 0 
+  1	LIT	 0	  5	  2		  1		  3		0 0 5 
+  2	STO	 0	  1	  3		  1		  2		0 5 
+  3	LOD	 0	  1	  4		  1		  3		0 5 5 
+  4	LIT	 0	 56	  5		  1		  4		0 5 5 56 
+  5	OPR	 0	  2	  6		  1		  3		0 5 61 
+  6	STO	 0	  0	  7		  1		  2		61 5 
+  7	SIO	 0	  3	  8		  1		  2		61 5 

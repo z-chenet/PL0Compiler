@@ -32,10 +32,6 @@ void Parser(Token tokenList[MAX_FILE_SIZE]) {
     //block();
     run();
     
-    if (errorOccured == 0) {
-        printf("No errors, program is syntactically correct.\n");
-    }
-    
     
     
     
@@ -61,9 +57,6 @@ void run(){
 void block(){
     int tempBlockIndex = currentMCodeTableIndex;
     
-    //  because first call is always jump
-    //emit(7, 0, 0);
-
     if (currentToken.tokenID == constsym) {
         constDeclaration();
     }
@@ -84,7 +77,6 @@ void block(){
     
     statement();
     
-    //emit(11, 0, 3);
     
     
 }
@@ -242,16 +234,13 @@ void statement(){
         while (currentToken.tokenID == semicolonsym) {
             getToken();
             statement();
-            //  after statement symbol is 32 for some reason
+
         }
-        //printf("TEST HERE :: %d\n\n", currentToken.tokenID);
-        //  error here
         if (currentToken.tokenID != endsym) {
             parserErrors(17);
         }
         
         getToken();
-        //finishedProcedure(lexiLevel);
     }
     else if (currentToken.tokenID == ifsym){
         getToken();
@@ -305,7 +294,6 @@ void statement(){
         
         if (currentToken.tokenID == identsym) {
             int symbol_index = searchSymbolTableForIdentifier(currentToken.name);
-            //printf("TESTING :: %d\n", symbol_index);
             if (symbol_index == -1) {
                 parserErrors(11);
             }
@@ -317,7 +305,6 @@ void statement(){
             //  adds the increment statement to the mcode
             emit(4, 0, symbol_table[symbol_index].addr);
             
-            //emit(3, 0, symbol_table[symbol_index].addr);
         }
         
     }
@@ -600,24 +587,12 @@ int convertToInt(char *number){
     return temp;
 }
 
-//  this isnt really needed it was causing the second sample input to crash because it was removing things from the symbol table that was still needed
-/*
-void finishedProcedure(int level){
-    printf("entered here\n");
-    int i;
-    for (i = currentSymbolTableIndex - 1; i >= 0; i--) {
-        if (symbol_table[i].level == level && symbol_table[i].kind != 3) {
-            symbol_table[i].addr = -1;
-        }
-    }
-}*/
 
 
 void printMcodeToFile(FILE* mcodeOutput) {
 
     fprintf(mcodeOutput, "\n");
     
-    //fprintf(mcodeOutput, "testing\n");
     int i;
     for(i=0;i<currentMCodeTableIndex;i++) {
         fprintf(mcodeOutput,"%d %d %d\n",mCodeTable[i].OP,mCodeTable[i].L,mCodeTable[i].M);
