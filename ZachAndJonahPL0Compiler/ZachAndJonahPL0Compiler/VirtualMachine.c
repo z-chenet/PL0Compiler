@@ -330,7 +330,7 @@ void handleInputOutput(){
         case 0:
             break;
         case 1:
-            printf("(%d)", stack[SP]);
+            printf("(%d)\n\n", stack[SP]);
             SP = SP - 1;
             break;
         case 2:
