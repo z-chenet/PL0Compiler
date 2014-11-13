@@ -75,7 +75,7 @@ void factor();
 void condition();
 void printMcodeToFile(FILE* mcodeOutput);
 void run();
-
+void purgeSymbolTable(int l);
 
 
 

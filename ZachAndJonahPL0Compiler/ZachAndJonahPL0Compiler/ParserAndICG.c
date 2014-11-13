@@ -46,7 +46,7 @@ void run(){
     getToken();
     
     block();
-    emit(11, 0, 3);
+
     
     if (currentToken.tokenID != periodsym) {
         parserErrors(9);
@@ -56,6 +56,9 @@ void run(){
 
 void block(){
     int tempBlockIndex = currentMCodeTableIndex;
+    currentMAddress = 0;
+    
+    emit(7, 0, 0);
     
     if (currentToken.tokenID == constsym) {
         constDeclaration();
@@ -71,11 +74,13 @@ void block(){
         procDeclaration();
     }
     
-    mCodeTable[tempBlockIndex].M = currentMAddress;
+    mCodeTable[tempBlockIndex].M = currentMCodeTableIndex;
     
-    emit(6, 0, tempMaddress);
+    emit(6, 0, tempMaddress + 4);
     
     statement();
+    
+    emit(2, 0, 0);
     
     
     
@@ -132,7 +137,8 @@ void varDeclaration(){
             parserErrors(4);
         }
         
-        enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress , 0);
+        //enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress + 4 , 0);
+        enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress + 4 , 0);
         
         getToken();
         
@@ -208,6 +214,7 @@ void statement(){
             parserErrors(10);
         }
         
+        //emit(4, lexiLevel - symbol_table[symbolLocation].level, ident_addr + 4);
         emit(4, lexiLevel - symbol_table[symbolLocation].level, ident_addr);
     }
     else if (currentToken.tokenID == callsym){
@@ -241,6 +248,8 @@ void statement(){
         }
         
         getToken();
+        
+        purgeSymbolTable(lexiLevel);
     }
     else if (currentToken.tokenID == ifsym){
         getToken();
@@ -389,6 +398,7 @@ void factor(){
             emit(1, 0, symbol_table[symbolIndex].val);
         }
         else{
+            //emit(3, lexiLevel - symbol_table[symbolIndex].level, symbol_table[symbolIndex].addr + 4);
             emit(3, lexiLevel - symbol_table[symbolIndex].level, symbol_table[symbolIndex].addr);
         }
         
@@ -473,6 +483,19 @@ int searchSymbolTableForIdentifier(char *identifier){
     }
     
     return -1;
+}
+
+void purgeSymbolTable(int l)
+{
+    int i;
+    for(i = currentSymbolTableIndex -1; i >=0; i--)
+    {
+        if (symbol_table[i].level == l && symbol_table[i].kind != 3)
+        {
+            symbol_table[i].addr = -1;
+        }
+        
+    }
 }
 
 void enterInSymbolTable(int type, Token token, int l, int m, int value){
