@@ -16,20 +16,10 @@
 *********/
 
 
-/***************************************************************************/
-/*                       Procedure and call not supported                  */
-//  after checking that program ends with perioid call HALT
-
 #include "ParserAndICG.h"
 
 void Parser(Token tokenList[MAX_FILE_SIZE]) {
-    /*
-        - We have an array of tokens. Refer to Scanner.h for the Token definition
-        - We need to go token by token till the end of line creating the symbol table and checking for grammar errors
-     */
-    
-    //getToken();
-    //block();
+
     run();
     
     
@@ -137,7 +127,7 @@ void varDeclaration(){
             parserErrors(4);
         }
         
-        //enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress + 4 , 0);
+        //enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress  , 0);
         enterInSymbolTable(2, currentToken, lexiLevel, currentMAddress + 4 , 0);
         
         getToken();
@@ -161,7 +151,7 @@ void procDeclaration(){
     lexiLevel++;
     
     //  +1 for PC
-    enterInSymbolTable(3, currentToken, lexiLevel, currentMCodeTableIndex + 1, -1);
+    enterInSymbolTable(3, currentToken, lexiLevel, currentMCodeTableIndex , -1);
     
     getToken();
     if (currentToken.tokenID != semicolonsym) {
@@ -232,7 +222,8 @@ void statement(){
         
         getToken();
         
-        emit(5, lexiLevel, symbol_table[symbol_index].addr);
+        //emit(5, lexiLevel, symbol_table[symbol_index].addr);
+        emit(5, 0, symbol_table[symbol_index].addr);
     }
     else if (currentToken.tokenID == beginsym){
         getToken();
