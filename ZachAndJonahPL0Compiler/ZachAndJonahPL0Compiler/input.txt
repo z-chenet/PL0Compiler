@@ -1,3 +1,5 @@
+/*********/
+
 var  x,y,z,v,w;
 procedure a;
 var x,y,u,v;

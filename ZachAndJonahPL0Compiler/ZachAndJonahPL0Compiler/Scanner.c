@@ -31,7 +31,7 @@ int Scanner(FILE* inputFile)
     
     input = inputFile;
     lexemeList = fopen("lexemelist.txt", "w");
-
+    cleanInput = fopen("cleaninput.txt", "w");
     
     
     //  clean input still messing up with periods commas and special symbols
@@ -44,7 +44,7 @@ int Scanner(FILE* inputFile)
         //  check to see if the current character is a letter
         if (isalpha(currentIndexCharacter) != 0) {
             //  prints to cleaninput file
-            //printInput(currentIndexCharacter);
+            printInput(currentIndexCharacter);
             
             //  creates and places the current letter into possible word
             char identifier[IDENTIFIER_MAX_LENGTH];
@@ -56,7 +56,7 @@ int Scanner(FILE* inputFile)
             //  prints current symbol to cleaninput
             //  checks if the next symbol after is a period or comma
             if (currentIndexCharacter != ',' && currentIndexCharacter != ';' && currentIndexCharacter != '.'){
-                //printInput(currentIndexCharacter);
+                printInput(currentIndexCharacter);
             }
             
             //  continue if the next character is a number or letter
@@ -68,7 +68,7 @@ int Scanner(FILE* inputFile)
                 //  prints current symbol to cleaninput
                 //  checks if the next symbol after is a period or comma 
                 if (currentIndexCharacter != ',' && currentIndexCharacter != ';' && currentIndexCharacter != '.'){
-                        //printInput(currentIndexCharacter);
+                        printInput(currentIndexCharacter);
                 }
                 
             }
@@ -109,7 +109,7 @@ int Scanner(FILE* inputFile)
         //  check to see if the current character is a number
         else if(isdigit(currentIndexCharacter)){
             //  prints first digit to cleaninput file
-            //printInput(currentIndexCharacter);
+            printInput(currentIndexCharacter);
             
             //  creates and places first number in possible word array
             char identifier[IDENTIFIER_MAX_LENGTH];
@@ -119,7 +119,7 @@ int Scanner(FILE* inputFile)
             //  gets next letter and prints it to cleaninput if not a period comma or semicolon
             currentIndexCharacter = fgetc(input);
             if (currentIndexCharacter != ',' && currentIndexCharacter != ';' && currentIndexCharacter != '.'){
-                //printInput(currentIndexCharacter);
+                printInput(currentIndexCharacter);
             }
             
             //  loop to keep getting next char as long as it is a number
@@ -128,7 +128,7 @@ int Scanner(FILE* inputFile)
                 i++;
                 currentIndexCharacter = fgetc(input);
                 if (currentIndexCharacter != ',' && currentIndexCharacter != ';' && currentIndexCharacter != '.'){
-                   // printInput(currentIndexCharacter);
+                    printInput(currentIndexCharacter);
                 }
             }
             
@@ -170,7 +170,7 @@ int Scanner(FILE* inputFile)
                         token.index = tokenIndex;
                         tokenList[tokenIndex] = token;
                         tokenIndex++;
-                        //printInput(currentIndexCharacter);
+                        printInput(currentIndexCharacter);
                     }
                     //  if colon is not followed by equals than an error occurs
                     else{
@@ -182,7 +182,7 @@ int Scanner(FILE* inputFile)
                 //  case for less than symbol
                 case lessym:
                 {
-                    //printInput(currentIndexCharacter);
+                    printInput(currentIndexCharacter);
                     
                     currentIndexCharacter = fgetc(input);
                     
@@ -194,7 +194,7 @@ int Scanner(FILE* inputFile)
                         token.index = tokenIndex;
                         tokenList[tokenIndex] = token;
                         tokenIndex++;
-                        //printInput(currentIndexCharacter);
+                        printInput(currentIndexCharacter);
                     }
                     else if (specialSymbolChar == eqsym){
                         token.tokenID = leqsym;
@@ -202,7 +202,7 @@ int Scanner(FILE* inputFile)
                         token.index = tokenIndex;
                         tokenList[tokenIndex] = token;
                         tokenIndex++;
-                        //printInput(currentIndexCharacter);
+                        printInput(currentIndexCharacter);
                     }
                     else{
                         ungetc(currentIndexCharacter, input);
@@ -217,7 +217,7 @@ int Scanner(FILE* inputFile)
                 //  check for greater than sym
                 case gtrsym:
                 {
-                    //printInput(currentIndexCharacter);
+                    printInput(currentIndexCharacter);
                     currentIndexCharacter = fgetc(input);
                     
                     //  different checks to see if greater than symbol followed by equals sym to add current symbol to tokens
@@ -228,7 +228,7 @@ int Scanner(FILE* inputFile)
                         token.index = tokenIndex;
                         tokenList[tokenIndex] = token;
                         tokenIndex++;
-                        //printInput(currentIndexCharacter);
+                        printInput(currentIndexCharacter);
                     }
                     else{
                         ungetc(currentIndexCharacter, input);
@@ -274,7 +274,7 @@ int Scanner(FILE* inputFile)
                         token.index = tokenIndex;
                         tokenList[tokenIndex] = token;
                         tokenIndex++;
-                        //printInput(currentIndexCharacter);
+                        printInput(currentIndexCharacter);
                     }
                     
                     break;
@@ -288,14 +288,14 @@ int Scanner(FILE* inputFile)
                     token.index = tokenIndex;
                     tokenList[tokenIndex] = token;
                     tokenIndex++;
-                    //printInput(currentIndexCharacter);
+                    printInput(currentIndexCharacter);
                     break;
             }
         }
         //  if its an invisiable character print it to the clean input
         //  do nothing else
         else if (isInvisibleChar(currentIndexCharacter)){
-            //printInput(currentIndexCharacter);
+            printInput(currentIndexCharacter);
         }
 
         else{
@@ -311,7 +311,7 @@ int Scanner(FILE* inputFile)
     
     //  closes respective files
     fclose(input);
-    //fclose(cleanInput);
+    fclose(cleanInput);
     //fclose(lexemeTable);
     fclose(lexemeList);
     

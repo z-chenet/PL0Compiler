@@ -194,7 +194,7 @@ int tokenIndex = 0;
 
 //  Files pointers for the input and output
 FILE *input;
-//FILE *cleanInput;
+FILE *cleanInput;
 FILE *lexemeList;
 //FILE *lexemeTable;
 
@@ -280,12 +280,12 @@ void error(int code){
     exit(1);
 }
 
-/*
+
 //  function to handle printing the clean input
 void printInput(char currentChar){
     fprintf(cleanInput, "%c", currentChar);
 }
-
+/*
 //  function to handle printing the lexemetable
 void printLexemeTable(){
     fprintf(lexemeTable, "Lexeme Table:\n");
